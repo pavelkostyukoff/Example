@@ -25,17 +25,32 @@
     android:label="One"
     tools:layout="@layout/fragment">
     <argument
-      android:name="picture"
-      app:argType="string" />
+        android:name="missionName"
+        app:argType="string" />
     <argument
-      android:name="title"
-      app:argType="string" />
+        android:name="missionDate"
+        app:argType="string" />
+
     <argument
-      android:name="body"
-      app:argType="string" />
+        android:name="rockName"
+        app:argType="string" />
+
     <argument
-      android:name="isFavorite"
-      app:argType="boolean" />
+        android:name="webLink"
+        app:argType="string" />
+
+    <argument
+        android:name="picture"
+        app:argType="string" />
+    <argument
+        android:name="title"
+        app:argType="string" />
+    <argument
+        android:name="body"
+        app:argType="string" />
+    <argument
+        android:name="isFavorite"
+        app:argType="boolean" />
   </fragment>
 
 </navigation>

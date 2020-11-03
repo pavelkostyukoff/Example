@@ -24,6 +24,22 @@
       android:name="com.poul.android.test.presentation.fragment.postdetail.PostFragment"
       android:label="One"
       tools:layout="@layout/fragment">
+
+    <argument
+        android:name="missionName"
+        app:argType="string" />
+    <argument
+        android:name="missionDate"
+        app:argType="string" />
+
+    <argument
+        android:name="rockName"
+        app:argType="string" />
+
+    <argument
+        android:name="webLink"
+        app:argType="string" />
+
     <argument
         android:name="picture"
         app:argType="string" />

@@ -3,6 +3,7 @@ package com.poul.android.test.presentation.activity
 
 import android.content.IntentFilter
 import android.net.ConnectivityManager
+import android.net.ParseException
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -14,6 +15,8 @@ import com.poul.android.test.R
 import com.poul.android.test.reciver.ConnectivityReceiver
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_list.*
+import java.text.SimpleDateFormat
+import java.util.Date
 
 
 class MainActivity : AppCompatActivity(), ConnectivityReceiver.ConnectivityReceiverListener {

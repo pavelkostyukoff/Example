@@ -1,6 +1,7 @@
 
 package com.poul.android.test.presentation.adapter
 
+import android.net.ParseException
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,7 +14,11 @@ import com.poul.android.test.presentation.adapter.PostAdapter.PostViewHolder
 import com.poul.android.test.presentation.fragment.extensions.load
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.recycler_view_item.*
+import java.text.DateFormat
+import java.text.SimpleDateFormat
+import java.util.Date
 
+@Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
 class PostAdapter(
     private val onPostClickListener: ((view: View, post: Post) -> Unit)? = null
 ) : ListAdapter<Post, PostViewHolder>(ITEM_COMPARATOR) {
@@ -45,6 +50,15 @@ class PostAdapter(
     ) {
         with(title_post) {
            text = item.title
+        }
+        with(rocket_name) {
+           text = item.rocketName
+        }
+        with(date) {
+            val formatter: DateFormat = SimpleDateFormat("dd-MM-yyyy")
+            val date = formatter.parse(item.date) as Date
+            text = date.year.toString() +" Год " +date.month.toString() +" месяц " + date.day.toString() +" день "
+
         }
         with(container)
         {

@@ -16,6 +16,7 @@ import androidx.transition.TransitionInflater
 import com.poul.android.test.R
 import com.poul.android.test.presentation.adapter.PostAdapter
 import com.poul.android.test.presentation.fragment.post.PostListFragmentDirections
+import kotlinx.android.synthetic.main.fragment.*
 import kotlinx.android.synthetic.main.fragment_favorites.*
 import kotlinx.android.synthetic.main.fragment_favorites.view.*
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -51,7 +52,7 @@ class FavoritesFragment : Fragment() {
             val toPostFragment = it.body?.let {
                 body ->
               PostListFragmentDirections.toPostFragment(
-                pictue, title, body, it.isFavourite
+                it.missionName!!,it.date!!,it.rocketName!!,it.webLink!!, it.picture, title, body, it.isFavourite
               )
             }
           toPostFragment

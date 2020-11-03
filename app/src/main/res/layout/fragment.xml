@@ -6,55 +6,97 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:id="@+id/container"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/corner_background"
-  >
 
-  <ImageView
-      android:id="@+id/image_view_full_screen"
+  <androidx.constraintlayout.widget.ConstraintLayout
+      android:id="@+id/container"
       android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:contentDescription="@null"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/titlePost"
-      tools:srcCompat="@tools:sample/avatars" />
+      android:layout_height="match_parent"
+      android:background="@drawable/corner_background"
+      >
+    <!-- - изображение (если есть)
+   - название миссии
+   - дату миссии
+   - информация по мисии (details)
+   - название ракеты
+   - изображения запуска (если есть)
+   - ссылку на видео запуска или встроенный плеер с видео-->
+    <ImageView
+        android:id="@+id/image_view_full_screen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentDescription="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
 
-  <TextView
-      android:id="@+id/subcriprion"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:textSize="14sp"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/image_view_full_screen">
 
-  </TextView>
+    <TextView
+        android:id="@+id/missionName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/about"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/image_view_full_screen" />
+    <TextView
+        android:id="@+id/missionDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/about"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/missionName" />
 
-  <TextView
-      android:id="@+id/titlePost"
-      android:layout_width="0dp"
-      android:layout_height="wrap_content"
-      android:textSize="20sp"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent">
+    <TextView
+        android:id="@+id/dateils"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="@string/about"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/missionDate" />
+    <TextView
+        android:id="@+id/rocketName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/about"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dateils" />
 
-  </TextView>
-
-  <ToggleButton
-      android:id="@+id/button_favorite"
-      android:layout_width="64dp"
-      android:layout_height="64dp"
-      android:textOff=""
-      android:textOn=""
-      app:layout_constraintEnd_toEndOf="@+id/image_view_full_screen"
-      app:layout_constraintStart_toStartOf="@+id/image_view_full_screen"
-      app:layout_constraintTop_toBottomOf="@+id/subcriprion" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView
+        android:id="@+id/image_start"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentDescription="@null"
+        app:layout_constraintTop_toBottomOf="@+id/rocketName"
+        tools:srcCompat="@tools:sample/avatars" />
+    <TextView
+        android:id="@+id/webLink"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:autoLink="web"
+        android:text="@string/about"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/image_start" />
+    <ToggleButton
+        android:id="@+id/button_favorite"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:textOff=""
+        android:textOn=""
+        app:layout_constraintEnd_toEndOf="@+id/image_view_full_screen"
+        app:layout_constraintStart_toStartOf="@+id/image_view_full_screen"
+        app:layout_constraintTop_toBottomOf="@+id/webLink" />
+  </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.core.widget.NestedScrollView>
 

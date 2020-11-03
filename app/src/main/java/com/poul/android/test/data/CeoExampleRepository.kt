@@ -27,13 +27,13 @@ class CeoExampleRepository(private val api: Api, private val cache: Cache) : Exa
 
   override suspend fun getApiExample(): List<Post> {
       return api.getPostLaunches().map {
-          Post(it.flightNumber, title = it.details, picture = it.links.missionPatchSmall, body = it.details, isFavourite = false)
+          Post(it.flightNumber,it.rocket.rocketName, it.launchDateLocal, title = it.details, picture = it.links.missionPatchSmall, body = it.details, isFavourite = false, missionName = it.missionName, startImage = it.links.missionPatch, webLink = it.links.videoLink)
       }
   }
 
   override suspend fun updateCachedPost(posts: List<Post>) {
     cache.updateCachedPosts(posts.map {
-                 CachedExample(it.id, it.title, it.picture, it.body, it.isFavourite)
+                 CachedExample(it.id, it.rocketName, it.date,it.title, it.picture, it.body, it.isFavourite,it.missionName, it.startImage, it.webLink)
     })
   }
 

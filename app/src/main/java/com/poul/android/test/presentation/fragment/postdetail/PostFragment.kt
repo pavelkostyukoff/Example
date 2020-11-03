@@ -37,13 +37,12 @@ class PostFragment : Fragment() {
 
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
-
-    val (picture,title, body, isFavorite) = args
+    val (missionName, missionDate, rockName, webLink, picture,title, body, isFavorite) = args
 
     setSharedElementTransitionOnEnter()
     postponeEnterTransition()
     setupFavoriteButton(picture, isFavorite)
-      setText(title,body)
+      setText(missionName, missionDate, body, rockName, webLink)
 
     image_view_full_screen.apply {
       transitionName = picture
@@ -72,9 +71,12 @@ class PostFragment : Fragment() {
     }
   }
 
-    private fun setText(title: String, body: String) {
-        subcriprion.text = body
-        titlePost.text = title
+    private fun setText(name: String, date: String, body: String, rName: String, link: String) {
+        missionName.text = name
+        missionDate.text = date
+        dateils.text = body
+        rocketName.text = rName
+        webLink.text = link
     }
 
   private fun updateButtonBackground(pictureIsFavorite: Boolean) {

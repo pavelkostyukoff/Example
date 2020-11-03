@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.transition.TransitionInflater
 import com.poul.android.test.R
 import com.poul.android.test.presentation.adapter.PostAdapter
+import kotlinx.android.synthetic.main.fragment.*
 import kotlinx.android.synthetic.main.fragment_list.view.*
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.InternalCoroutinesApi
@@ -53,24 +54,14 @@ class PostListFragment : Fragment() {
       val extraInfoForSharedElement = FragmentNavigatorExtras(
         (view to it.picture!!)
       )
-     /* val toPostFragment =
-        it.picture?.let { picture -> it.title?.let {
-            title ->
-          val toPostFragment = it.body?.let {
-              body ->
-            PostListFragmentDirections.toPostFragment(
-              picture, title, body, it.isFavourite
-            )
-          }
-          toPostFragment
-        } }
-
-      if (toPostFragment != null) {
-        navigate(toPostFragment, extraInfoForSharedElement)
-      }*/
-
       val toPostFragment =
-        it.title?.let { body -> it.body?.let { title -> PostListFragmentDirections.toPostFragment(it.picture, body, title, it.isFavourite) } }
+        it.title?.let { body -> it.body?.let { title -> it.missionName?.let { name -> it.date?.let {
+            date ->
+          it.startImage?.let {
+              startImg ->/*body missionName missionDate rockName webLink picture title  isFavorite*/
+            PostListFragmentDirections.toPostFragment(it.missionName,it.date,it.rocketName!!,it.webLink!!, it.picture, it.title ,it.body,it.isFavourite)
+          }
+        } } } }
       toPostFragment?.let { nav -> navigate(nav, extraInfoForSharedElement) }
     }
   }

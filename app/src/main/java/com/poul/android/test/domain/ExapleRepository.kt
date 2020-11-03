@@ -10,4 +10,5 @@ interface ExapleRepository {
   suspend fun getApiExample(): List<Post>
   suspend fun updateCachedPost(posts: List<Post>)
   suspend fun updatePostFavoriteStatus(postPicture: String, isFavorite: Boolean)
+
 }
